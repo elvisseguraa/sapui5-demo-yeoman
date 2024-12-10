@@ -1,0 +1,33 @@
+<mvc:View
+    controllerName="myui5app.controller.ProductsView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <!-- <Page id="page" title="{i18n>title}">
+        <content />
+    </Page> -->
+    <Page
+        id="Products"
+        title="Available Products"
+    >
+        <content>
+            <List
+                id="_IDGenList"
+                items="{/Products}"
+            >
+                <!-- <StandardListItem
+                    id="_IDGenStandardListItem"
+                    type="Active"
+                    title="{ProductName}"
+                /> -->
+                <StandardListItem
+                    id="_IDGenStandardListItem"
+                    type="Navigation"
+                    press=".handleListItemPress"
+                    title="{ProductName}"
+                />
+            </List>
+        </content>
+    </Page>
+</mvc:View>

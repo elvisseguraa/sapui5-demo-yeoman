@@ -1,0 +1,16 @@
+<mvc:View controllerName="myui5app.controller.ProductDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	displayBlock="true">
+	<!-- <Page id="page" title="{i18n>productdetail}">
+        <content />
+    </Page> -->
+    <Page id="ProductDetail" title="Detail Page">
+		<VBox id="_IDGenVBox1">
+			<Text id="_IDGenText" text="{ProductName}"/>
+			<Text id="_IDGenText1" text="{UnitPrice}"/>
+			<Text id="_IDGenText2" text="{QuantityPerUnit}"/>
+			<Text id="_IDGenText3" text="{UnitsInStock}"/>
+		</VBox>
+	</Page>
+</mvc:View>
