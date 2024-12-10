@@ -1,33 +1,39 @@
 <mvc:View
     controllerName="myui5app.controller.ProductsView"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true"
     xmlns="sap.m"
+    displayBlock="true"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartList="sap.ui.comp.smartlist"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:mvc="sap.ui.core.mvc"
 >
-    <!-- <Page id="page" title="{i18n>title}">
-        <content />
-    </Page> -->
-    <Page
-        id="Products"
-        title="Available Products"
-    >
-        <content>
-            <List
-                id="_IDGenList"
-                items="{/Products}"
-            >
-                <!-- <StandardListItem
-                    id="_IDGenStandardListItem"
-                    type="Active"
-                    title="{ProductName}"
-                /> -->
+    <Page id="Products">
+        <smartFilterBar:SmartFilterBar
+            id="smartFilterBar"
+            persistencyKey="UniqueAndStablePersistencyKey"
+            entitySet="Products"
+            considerSelectionVariants="true"
+        />
+        <smartList:SmartList
+            id="smartProductList"
+            smartFilter="smartFilterBar"
+            entitySet="Products"
+            expandFields="Category"
+            header="Products List"
+            showRowCount="true"
+            showFullScreenButton="true"
+            enableAutoBinding="true"
+        >
+            <smartList:listItemTemplate>
                 <StandardListItem
-                    id="_IDGenStandardListItem"
+                    id="listTemplate"
                     type="Navigation"
-                    press=".handleListItemPress"
+                    press="handleListItemPress"
                     title="{ProductName}"
+                    info="{= ${UnitPrice} + ' €' }"
+                    description="{Category/CategoryName}"
                 />
-            </List>
-        </content>
+            </smartList:listItemTemplate>
+        </smartList:SmartList>
     </Page>
 </mvc:View>
